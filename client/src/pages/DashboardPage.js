@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
+import api from '../api';
 
 const DashboardPage = () => {
   const { user } = useSelector((state) => state.auth);
@@ -14,8 +14,8 @@ const DashboardPage = () => {
     const fetchDashboardData = async () => {
       try {
         const [coursesResponse, activityResponse] = await Promise.all([
-          axios.get('/api/dashboard/courses'),
-          axios.get('/api/dashboard/activity'),
+          api.get('/dashboard/courses'),
+          api.get('/dashboard/activity'),
         ]);
         setEnrolledCourses(coursesResponse.data);
         setRecentActivity(activityResponse.data);

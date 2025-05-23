@@ -42,10 +42,8 @@ app.use(morgan('dev'));
 
 // CORS configuration
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: 'http://localhost:3000',
+    credentials: true
 }));
 
 // Body parsing middleware

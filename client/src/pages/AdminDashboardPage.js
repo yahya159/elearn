@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 
 const AdminDashboardPage = () => {
   const [stats, setStats] = useState({
@@ -21,7 +21,7 @@ const AdminDashboardPage = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/admin/stats');
+      const response = await api.get('/admin/stats');
       setStats(response.data.stats);
       setLoading(false);
     } catch (error) {
